@@ -68,8 +68,7 @@
 
                         <a href="tel:01240094300"><i class="uil uil-outgoing-call"></i> (12) 4009-4300</a>
                         <br>
-                        <a href="https://wa.me/5512996539066" target="_blank"><i class="uil uil-whatsapp"></i> (12)
-                            99653-9066</a>
+                        <a href="https://wa.me/5512996539066" target="_blank"><i class="uil uil-whatsapp"></i> (12) 99653-9066</a>
                         <br>
                         <a href="mailto:30semanas@igrejadacidade.org.br" target="_blank"><i
                                 class="uil uil-fast-mail"></i> 30semanas@igrejadacidade.org.br</a>
@@ -83,11 +82,11 @@
                     <div class="widget">
                         <h4 class="widget-title text-white mb-3">30 Semanas</h4>
                         <ul class="list-unstyled  mb-0">
-                            <li><a href="#decisoes">Decisões</a></li>
-                            <li><a href="#partilhas">Partilhas</a></li>
-                            <li><a href="#celebracao">Celebrações</a></li>
-                            <li><a href="#contato">Contato</a></li>
-                            <li><a href="#">Sou Líder</a></li>
+                            <li><a href="#">Decisões</a></li>
+                            <li><a href="#">Partilhas</a></li>
+                            <li><a href="#">Celebrações</a></li>
+                            <li><a href="#">Contato</a></li>
+                            {{-- <li><a href="#">Sou Líder</a></li> --}}
                         </ul>
                     </div>
                 </div>

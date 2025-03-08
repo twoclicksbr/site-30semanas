@@ -23,96 +23,103 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="https://30semanas.com.br/#decisoes">Decisões</a>
+                            <a class="nav-link " href="#">Decisões</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="https://30semanas.com.br/#partilhas">Partilhas</a>
+                            <a class="nav-link " href="#">Partilhas</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="https://30semanas.com.br/all_celebracao">Celebrações</a>
+                            <a class="nav-link " href="/video">Celebrações</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="https://30semanas.com.br/#contato">Contato</a>
+                            <a class="nav-link " href="#">Contato</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link " href="https://30semanas.com.br/entrar/novo">Cadastre-se</a>
-                        </li>
+                        @if (!session()->has('auth_id_person'))
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="#">Cadastre-se</a>
+                            </li>
+                        @endif
+
+                        @if (session()->has('auth_id_person'))
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle show" href="#" data-bs-toggle="dropdown"
+                                    aria-expanded="true">Meu Perfil</a>
+                                <ul class="dropdown-menu show" data-bs-popper="static">
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle show" href="#" data-bs-toggle="dropdown"
-                                aria-expanded="true">Meu Perfil</a>
-                            <ul class="dropdown-menu show" data-bs-popper="static">
+                                    <li class="dropdown dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown"><i class="uil uil-bright"></i> Administração</a>
+                                        <ul class="dropdown-menu">
 
-                                <li class="dropdown dropdown-submenu dropend">
-                                    <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
-                                            class="uil uil-bright"></i> Administração</a>
-                                    <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="dropdown-item" href="https://30semanas.com.br/pessoa"><i
+                                                        class="uil uil-users-alt"></i> Participantes / Líderes</a>
+                                            </li>
 
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="https://30semanas.com.br/pessoa"><i
-                                                    class="uil uil-users-alt"></i> Participantes / Líderes</a>
-                                        </li>
+                                            {{-- <li class="nav-item">
+                                                <a class="dropdown-item" href="#"><i
+                                                        class="uil uil-calendar-alt"></i> Agenda de Partilhas</a>
+                                            </li> --}}
 
-                                        <!-- <li class="nav-item">
-                                                        <a class="dropdown-item" href="#"><i class="uil uil-calendar-alt"></i> Agenda de Partilhas</a>
-                                                    </li> -->
+                                            {{-- <li class="nav-item">
+                                                <a class="dropdown-item" href="https://30semanas.com.br/igreja"><span
+                                                        class="material-symbols-outlined"
+                                                        style="font-size: 15px;">church</span> Lista de Igrejas </a>
+                                            </li> --}}
 
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="https://30semanas.com.br/igreja"><span
-                                                    class="material-symbols-outlined"
-                                                    style="font-size: 15px;">church</span> Lista de Igrejas </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="https://30semanas.com.br/celebracao"><i
-                                                    class="uil uil-youtube"></i> Vídeos do YouTube</a>
-                                        </li>
+                                            <li class="nav-item">
+                                                <a class="dropdown-item" href="https://30semanas.com.br/celebracao"><i
+                                                        class="uil uil-youtube"></i> Vídeos do YouTube</a>
+                                            </li>
 
 
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="https://30semanas.com.br/partilha"><i
-                                                    class="uil uil-shield-check"></i> Salas de Partilhas</a>
-                                        </li>
+                                            <li class="nav-item">
+                                                <a class="dropdown-item" href="https://30semanas.com.br/partilha"><i
+                                                        class="uil uil-shield-check"></i> Salas de Partilhas</a>
+                                            </li>
 
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="dropdown-item" href="https://30semanas.com.br/entrar/editar"><i
-                                            class="uil uil-user"></i> Editar meus Dados</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="https://30semanas.com.br/entrar/editar"><i
+                                                class="uil uil-user"></i> Editar meus Dados</a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="dropdown-item" href="https://30semanas.com.br/entrar/presenca"><i
-                                            class="uil uil-user-check"></i> Minhas Presenças</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="https://30semanas.com.br/entrar/presenca"><i
+                                                class="uil uil-user-check"></i> Minhas Presenças</a>
+                                    </li>
 
 
-                                <li class="nav-item">
-                                    <a class="dropdown-item" href="https://30semanas.com.br/entrar/editar_senha"><i
-                                            class="uil uil-data-sharing"></i> Alterar Senha</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="https://30semanas.com.br/entrar/editar_senha"><i
+                                                class="uil uil-data-sharing"></i> Alterar Senha</a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="dropdown-item" href="https://30semanas.com.br/logout"><i
-                                            class="uil uil-signout"></i> Sair da Partilha</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"><i
+                                                class="uil uil-signout"></i> Sair da Partilha</a>
+                                    </li>
 
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        @endif
 
 
                     </ul>
 
-                    <div class="offcanvas-footer d-lg-none">
+                    {{-- <div class="offcanvas-footer d-lg-none">
                         <div>
-                            <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a>
-                            <br /> 00 (123) 456 78 90 <br />
+                            <a href="mailto:30semanas@igrejadacidade.org.br" class="link-inverse">30semanas@igrejadacidade.org.br</a>
+                            <a href="mailto:atendimento@igrejadacidade.org.br" class="link-inverse">atendimento@igrejadacidade.org.br</a>
+                            <br /> (12) 4009-4300
+                            <br /> (12) 99653-9066 <br />
                             <nav class="nav social social-white mt-4">
                                 <a href="#"><i class="uil uil-twitter"></i></a>
                                 <a href="#"><i class="uil uil-facebook-f"></i></a>
@@ -121,25 +128,34 @@
                                 <a href="#"><i class="uil uil-youtube"></i></a>
                             </nav>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
 
             <div class="navbar-other w-100 d-flex ms-auto">
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    
+
                     <li class="nav-item">
 
-
-                        <a href="https://30semanas.com.br/#partilhas"
-                            class="btn btn-orange btn-icon btn-icon-start rounded"
-                            style="background-color: #f78b77; border-color: #f78b77;">
-                            <i class="uil uil-signin"></i> Alex, vamos partilhar?
-                        </a>
+                        @if (session()->has('auth_id_person'))
+                            <a href="/share" class="btn btn-orange btn-icon btn-icon-start rounded share-btn">
+                                <i class="uil uil-shield-check"></i>
+                                <span class="desktop-text">{{ explode(' ', session('auth_name'))[0] }}, vamos
+                                    partilhar?</span>
+                                <span class="mobile-text">Partilhar</span>
+                            </a>
+                        @else
+                            <a href="/login" class="btn btn-orange btn-icon btn-icon-start rounded"
+                                style="background-color: #f78b77; border-color: #f78b77;">
+                                <i class="uil uil-signin"></i>
+                                <span class="desktop-text">Entrar e Partilhar?</span>
+                                <span class="mobile-text">Entrar</span>
+                            </a>
+                        @endif
 
                     </li>
-                    
+
                     <li class="nav-item d-lg-none">
                         <button class="hamburger offcanvas-nav-btn"><span></span></button>
                     </li>

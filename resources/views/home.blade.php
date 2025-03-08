@@ -34,7 +34,10 @@
                             data-group="page-title" data-delay="200" data-show="true"
                             style="animation-name: zoomIn; animation-duration: 700ms; animation-timing-function: ease; animation-delay: 1200ms; animation-direction: normal; animation-fill-mode: both;">
                             O 30 Semanas é uma ferramenta, mas vale lembrar que ele não tem o poder de mudar a vida de
-                            ninguém. Quem tem o poder para mudar, restaurar, transformar e curar é Jesus!</h2>
+                            ninguém. Quem tem o poder para mudar, restaurar, transformar e curar é Jesus!
+
+                            {{-- {{ dd(session()->all()); }} --}}
+                        </h2>
                         <!-- <a href="./assets/media/movie.mp4" class="btn btn-circle btn-white btn-play ripple mx-auto" data-glightbox><i class="icn-caret-right"></i></a> -->
                     </div>
                 </div>
@@ -177,7 +180,7 @@
 
     <section id="share" class="wrapper" style="background-color: #8b5a3c">
         <div class="container py-md-5">
-            
+
             <div class="row gx-lg-0 gy-10 mb-5 mb-md-10 align-items-center">
                 <div class="col-lg-6 text-center">
 
@@ -235,10 +238,13 @@
 
                 <div class="col-lg-7">
 
-                    <video poster="{{ asset('assets/img/photos/movie.jpg') }}" class="player" playsinline controls preload="none">
-                        <source src="{{ asset('assets/media/movie.mp4') }}" type="video/mp4">
-                        <source src="{{ asset('assets/media/movie.mp4') }}" type="video/webm">
-                    </video>
+                    @if ($featuredVideo)
+                        <div class="player text-orange" data-plyr-provider="youtube"
+                            data-plyr-embed-id="{{ $featuredVideo['link'] }}">
+                        </div>
+                    @else
+                        <p class="text-white">Nenhum vídeo disponível no momento.</p>
+                    @endif
 
                 </div>
 
@@ -250,7 +256,7 @@
                             <h4>Toda a quinta-feira temos a nossa celebração <br> on-line do <b>30 Semanas</b> a partir das
                                 20h.</h4>
 
-                            <a href="https://30semanas.com.br/all_celebracao"
+                            <a href="/video"
                                 class="btn btn-orange btn-icon btn-icon-start rounded ">
                                 <i class="uil uil-youtube"></i> Ver todas as Celebrações.
                             </a>
@@ -262,5 +268,17 @@
             </div>
         </div>
     </section>
+
+    @php
+        function getYouTubeID($url)
+        {
+            preg_match(
+                '/(?:youtube\.com\/(?:[^\/]+\/[^\/]+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/',
+                $url,
+                $match,
+            );
+            return $match[1] ?? null;
+        }
+    @endphp
 
 @endsection

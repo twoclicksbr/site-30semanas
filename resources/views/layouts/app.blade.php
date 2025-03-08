@@ -41,5 +41,20 @@
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
 
+    <style>
+        .mobile-text {
+            display: none;
+        }
+    
+        @media (max-width: 768px) {
+            .desktop-text {
+                display: none;
+            }
+            .mobile-text {
+                display: inline;
+            }
+        }
+    </style>
+
 </body>
 </html>
