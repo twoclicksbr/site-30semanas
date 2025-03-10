@@ -1,4 +1,4 @@
-<footer id="contato" class="bg-dark ">
+<footer id="contact" class="bg-dark ">
     <div class="container pb-13 pb-md-15">
         <div class="card image-wrapper bg-full bg-image bg-overlay mt-n50p mx-md-5"
             data-image-src="{{ asset('https://30semanas.com.br//assets/img/photos/bg27.jpg') }}"
@@ -68,7 +68,8 @@
 
                         <a href="tel:01240094300"><i class="uil uil-outgoing-call"></i> (12) 4009-4300</a>
                         <br>
-                        <a href="https://wa.me/5512996539066" target="_blank"><i class="uil uil-whatsapp"></i> (12) 99653-9066</a>
+                        <a href="https://wa.me/5512996539066" target="_blank"><i class="uil uil-whatsapp"></i> (12)
+                            99653-9066</a>
                         <br>
                         <a href="mailto:30semanas@igrejadacidade.org.br" target="_blank"><i
                                 class="uil uil-fast-mail"></i> 30semanas@igrejadacidade.org.br</a>
@@ -82,10 +83,43 @@
                     <div class="widget">
                         <h4 class="widget-title text-white mb-3">30 Semanas</h4>
                         <ul class="list-unstyled  mb-0">
-                            <li><a href="#">Decisões</a></li>
-                            <li><a href="#">Partilhas</a></li>
-                            <li><a href="#">Celebrações</a></li>
-                            <li><a href="#">Contato</a></li>
+                            <li>
+                                @php
+                                    $urlDecision =
+                                        request()->path() === '/' || request()->path() === 'home'
+                                            ? '#decision'
+                                            : '/home#decision';
+                                @endphp
+                                <a href="{{ $urlDecision }}">Decisões</a>
+                            </li>
+                            <li>
+                                @php
+                                    $urlShare =
+                                        request()->path() === '/' || request()->path() === 'home'
+                                            ? '#share'
+                                            : '/home#share';
+                                @endphp
+                                <a href="{{ $urlShare }}">Partilhas</a>
+                            </li>
+                            <li>
+                                @php
+                                    $urlCelebration =
+                                        request()->path() === '/' || request()->path() === 'home'
+                                            ? '#celebration'
+                                            : '/home#celebration';
+                                @endphp
+                                <a href="{{ $urlCelebration }}">Celebrações</a>
+                            </li>
+
+                            <li>    
+                                @php
+                                    $urlContact =
+                                        request()->path() === '/' || request()->path() === 'home'
+                                            ? '#contact'
+                                            : '/home#contact';
+                                @endphp
+                                <a href="{{ $urlContact }}">Contato</a>
+                            </li>
                             {{-- <li><a href="#">Sou Líder</a></li> --}}
                         </ul>
                     </div>

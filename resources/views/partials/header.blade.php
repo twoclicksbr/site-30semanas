@@ -22,69 +22,89 @@
 
                     <ul class="navbar-nav">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link " href="#">Decisões</a>
-                        </li>
+                        @php
+                            $urlDecision =
+                                request()->path() === '/' || request()->path() === 'home'
+                                    ? '#decision'
+                                    : '/home#decision';
+                        @endphp
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="#">Partilhas</a>
+                            <a class="nav-link" href="{{ $urlDecision }}">Decisões</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link " href="/video">Celebrações</a>
-                        </li>
+                        @php
+                            $urlShare =
+                                request()->path() === '/' || request()->path() === 'home' 
+                                    ? '#share' 
+                                    : '/home#share';
+                        @endphp
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="#">Contato</a>
+                            <a class="nav-link" href="{{ $urlShare }}">Partilhas</a>
+                        </li>
+
+                        @php
+                            $urlCelebration =
+                                request()->path() === '/' || request()->path() === 'home'
+                                    ? '#celebration'
+                                    : '/home#celebration';
+                        @endphp
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ $urlCelebration }}">Celebrações</a>
+                        </li>
+
+                        @php
+                            $urlContact =
+                                request()->path() === '/' || request()->path() === 'home'
+                                    ? '#contact'
+                                    : '/home#contact';
+                        @endphp
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ $urlContact }}">Contato</a>
                         </li>
 
                         @if (!session()->has('auth_id_person'))
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="#">Cadastre-se</a>
                             </li>
-                        @endif
-
-                        @if (session()->has('auth_id_person'))
+                        @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle show" href="#" data-bs-toggle="dropdown"
                                     aria-expanded="true">Meu Perfil</a>
                                 <ul class="dropdown-menu show" data-bs-popper="static">
 
+                                    @if (session('auth_adm') || session('auth_lider'))
+                                        <li class="dropdown dropdown-submenu dropend">
+                                            <a class="dropdown-item dropdown-toggle" href="#"
+                                                data-bs-toggle="dropdown"><i class="uil uil-bright"></i>
+                                                Administração</a>
+                                            <ul class="dropdown-menu">
 
-                                    <li class="dropdown dropdown-submenu dropend">
-                                        <a class="dropdown-item dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown"><i class="uil uil-bright"></i> Administração</a>
-                                        <ul class="dropdown-menu">
+                                                @if (session('auth_adm'))
+                                                    <li class="nav-item">
+                                                        <a class="dropdown-item"
+                                                            href="#"><i
+                                                                class="uil uil-users-alt"></i> Participantes / Líderes</a>
+                                                    </li>
 
-                                            <li class="nav-item">
-                                                <a class="dropdown-item" href="https://30semanas.com.br/pessoa"><i
-                                                        class="uil uil-users-alt"></i> Participantes / Líderes</a>
-                                            </li>
+                                                    <li class="nav-item">
+                                                        <a class="dropdown-item"
+                                                            href="#"><i
+                                                                class="uil uil-youtube"></i> Celebrações </a>
+                                                    </li>
+                                                @endif
 
-                                            {{-- <li class="nav-item">
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="uil uil-calendar-alt"></i> Agenda de Partilhas</a>
-                                            </li> --}}
+                                                <li class="nav-item">
+                                                    <a class="dropdown-item" href="https://30semanas.com.br/partilha"><i
+                                                            class="uil uil-shield-check"></i> Salas de Partilhas </a>
+                                                </li>
 
-                                            {{-- <li class="nav-item">
-                                                <a class="dropdown-item" href="https://30semanas.com.br/igreja"><span
-                                                        class="material-symbols-outlined"
-                                                        style="font-size: 15px;">church</span> Lista de Igrejas </a>
-                                            </li> --}}
-
-                                            <li class="nav-item">
-                                                <a class="dropdown-item" href="https://30semanas.com.br/celebracao"><i
-                                                        class="uil uil-youtube"></i> Vídeos do YouTube</a>
-                                            </li>
-
-
-                                            <li class="nav-item">
-                                                <a class="dropdown-item" href="https://30semanas.com.br/partilha"><i
-                                                        class="uil uil-shield-check"></i> Salas de Partilhas</a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
+                                            </ul>
+                                        </li>
+                                    @endif
 
                                     <li class="nav-item">
                                         <a class="dropdown-item" href="https://30semanas.com.br/entrar/editar"><i
@@ -110,6 +130,9 @@
                                 </ul>
                             </li>
                         @endif
+
+                        {{-- @if (session()->has('auth_id_person'))
+                        @endif --}}
 
 
                     </ul>

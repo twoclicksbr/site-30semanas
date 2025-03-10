@@ -1,3 +1,10 @@
+@if(session()->has('auth_id_person'))
+    @php
+        header("Location: " . route('home'));
+        exit();
+    @endphp
+@endif
+
 @extends('layouts.app')
 
 @section('title', 'Página Inicial')

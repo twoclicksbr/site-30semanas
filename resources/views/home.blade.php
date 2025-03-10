@@ -4,7 +4,11 @@
 
 @section('content')
 
-    <section id="decisoes" class="">
+    @php
+        // dd(session()->all());
+    @endphp
+
+    <section id="" class="">
         <div class="wrapper image-wrapper bg-cover bg-image bg-overlay bg-overlay-500"
             data-image-src="https://30semanas.com.br/assets/img/photos/bg26.jpg"
             style="background-image: url(&quot;https://30semanas.com.br/assets/img/photos/bg26.jpg&quot;);">
@@ -55,7 +59,7 @@
     </section>
 
 
-    <section id="decisoes" class="section-frame overflow-hidden mt-10 mb-10">
+    <section id="decision" class="section-frame overflow-hidden mt-10 mb-10">
         <div class="wrapper " style="border-radius: 1rem;">
             <div class="container ">
                 <div class="row text-center">
@@ -224,8 +228,9 @@
                     <h3 class="text-white">IMPORTANTE: NA HORA DA PARTILHA, USAR FONE DE OUVIDO E DEIXAR A CÂMERA ABERTA.
                     </h3>
 
-                    <a href="#" class="btn btn-soft-primary w-100 mt-2 mb-0"><i class="uil uil-signin"></i> Entrar
-                        e Partilhar</a>
+                    <a href="/login" class="btn btn-soft-primary w-100 mt-2 mb-0">
+                        <i class="uil uil-signin"></i> Entrar e Partilhar
+                    </a>
                 </div>
             </div>
         </div>
@@ -256,8 +261,7 @@
                             <h4>Toda a quinta-feira temos a nossa celebração <br> on-line do <b>30 Semanas</b> a partir das
                                 20h.</h4>
 
-                            <a href="/video"
-                                class="btn btn-orange btn-icon btn-icon-start rounded ">
+                            <a href="/video" class="btn btn-orange btn-icon btn-icon-start rounded ">
                                 <i class="uil uil-youtube"></i> Ver todas as Celebrações.
                             </a>
 
